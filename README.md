@@ -73,3 +73,26 @@ f();
     (3) [1, 2, 3]
 */
 ```
+Btw, I hope you know the difference between 'compilation' & 'pollyfilling' :p
+7) Template strings
+```javascript
+f = function(){
+    "use strict"
+    const s0 = 'string\'s'
+    const s1 = "string's"
+    const s2 = `
+    S T 
+    R I
+    N G
+    `
+    console.log(s0,s1,s2);
+}
+f();
+/*
+string's string's 
+    S T 
+    R I
+    N G
+*/
+```
+8)
