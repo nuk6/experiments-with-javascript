@@ -95,4 +95,28 @@ string's string's
     N G
 */
 ```
-8)
+8) Types & Equality 
+NaN is not equal to anything including itself
+```javascript
+f = function(){
+    "use strict"
+    console.log( NaN == "1" )
+    console.log( NaN == NaN )
+    console.log( NaN === 1 )
+    console.log( NaN === NaN )
+    console.log( isNaN(NaN) );
+    console.log( undefined == null );
+    console.log( undefined === null )
+}
+f();
+/*
+false
+false
+false
+false
+true
+true
+false
+*/
+*/
+```
