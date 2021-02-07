@@ -120,3 +120,37 @@ false
 */
 */
 ```
+9) Now my favorite one, Scopes & Variables && IIFE
+```javascript
+f = function(){
+    "use strict"
+    f = [];
+    for(let i = 0; i < 10; i++){
+        f[i] = () => { return i }
+    }
+    console.log(f[5]());
+    const g = [];
+    for(var i = 0; i < 10; i++){
+        g[i] = () => { return i }
+    }
+    console.log(g[5]())
+}
+f();
+/*
+5
+10
+*/
+```
+IIFE example
+```javascript
+f = function(){
+    //"use strict"
+    ((i) => {
+        console.log(i)
+    })(8)
+}
+f();
+/*
+8
+*/
+```
