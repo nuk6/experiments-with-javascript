@@ -154,3 +154,30 @@ f();
 8
 */
 ```
+9. Destructuring
+```javascript
+f = function(){
+    "use strict"
+    function f({x}){
+        console.log(x)
+    }
+    f({});
+    f({x:9})
+    f({y:9})
+    function g({x = 5}){
+        console.log(x)
+    }
+    g({});
+    g({x:9})
+    g({y:9})
+}
+f();
+/*
+undefined
+9
+undefined
+5
+9
+5
+*/
+```
