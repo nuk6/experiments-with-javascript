@@ -181,3 +181,81 @@ undefined
 5
 */
 ```
+Destructuring array
+```javascript
+f = function(){
+    "use strict"
+    const arr = [2,3,4,5]
+    const [a,b,c,d,e] = arr
+    console.log(a,b,c,d,e)
+}
+f();
+/*
+2 3 4 5 undefined
+*/
+```
+10. This 
+the value of this depends on the calling context
+f = function(){
+    const obj = {
+        f1: function() {
+            console.log(this)
+        }
+    }
+    obj.f1();
+    const f1 = obj.f1;
+    f1();
+    const obj1 = {
+        f2: function() {
+            //"use strict"
+            this.prop1 = "abc"
+            console.log(this)
+        }
+    }
+    obj1.f2()
+    const f2 = obj1.f2;
+    f2();
+}
+f();
+/*
+The first call prints obj Object while the next call prints Window object
+A good way is to use use-strict so that it sets the value of this within an execution context from 'Window' to 'undefined'
+At line 210, uncomment & check
+*/
+11. Call, Apply
+```javascript
+f = function(){
+    const obj = {
+        a : 10,
+        f : function(b,c,d){
+            "use strict"
+            console.log(this)
+            console.log(b)
+            console.log(c)
+            console.log(d)
+        }
+    }
+    obj.f(2,3,4)
+    obj.f.call(1,2,3,4)
+    obj.f.apply(1, [2,3,4])
+}
+f();
+/*
+The first call prints obj Object while the next call prints Window object
+A good way is to use use-strict so that it sets the value of this within an execution context from 'Window' to 'undefined'
+*/
+```
+12. Bind
+```javascript
+f = function(){
+    const a = function(){
+        "use strict"
+        console.log(this)
+    }.bind(1)
+    a()
+}
+f();
+/*
+1
+*/
+```
