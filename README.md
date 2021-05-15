@@ -261,6 +261,7 @@ f();
 ```
 13. Prototype based inheritance in javascript
 ```javascript
+{
 "use strict"
 
 function Person(f_name, l_name) {
@@ -292,4 +293,5 @@ debugger
 console.log(p2.get_full_name())
 console.log(p2.full_name())
 debugger;
+}
 ```
