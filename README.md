@@ -259,3 +259,37 @@ f();
 1
 */
 ```
+13. Prototype based inheritance in javascript
+```javascript
+"use strict"
+
+function Person(f_name, l_name) {
+  this.first_name = f_name
+  this.last_name = l_name
+}
+
+Person.prototype.full_name = function() {
+  return this.first_name + "  " + this.last_name
+}
+
+var p1 = new Person("Nidhi", "Kumari")
+
+function Prof(f_name, l_name, job) {
+  Person.apply(this, [f_name, l_name])
+  this.job = job
+}
+
+Prof.prototype = Object.create(Person.prototype) // Creating prototype chain
+
+Prof.prototype.get_full_name = function(){
+  return `${this.job}, ${this.first_name} ${this.last_name}`
+}
+
+console.log(p1.full_name())
+
+const p2 = new Prof("Nidhi", "Kumari", "Analyst")
+debugger
+console.log(p2.get_full_name())
+console.log(p2.full_name())
+debugger;
+```
