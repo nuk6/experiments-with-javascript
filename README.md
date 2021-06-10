@@ -196,6 +196,7 @@ f();
 ```
 10. This 
 the value of this depends on the calling context
+```javascript
 f = function(){
     const obj = {
         f1: function() {
@@ -222,6 +223,31 @@ The first call prints obj Object while the next call prints Window object
 A good way is to use use-strict so that it sets the value of this within an execution context from 'Window' to 'undefined'
 At line 210, uncomment & check
 */
+```
+```javascript
+{
+  const a = {
+  p1 : 'Dummy Object param!',
+  f1 : function() {
+    console.log(this.p1) // 'Dummy Object param!
+    {
+      // Just a block
+      console.log(`Inside - ${this.p1}`) // Inside - Dummy Object param!
+    }
+    function a2() {
+      console.log(`Func - ${this.p1}`)
+    }
+    a2() // Func - undefined
+    a2.call(this) // Func - Dummy Object param!
+    a3 = () => {
+      console.log(`Fat Arrow -  ${this.p1}`)
+    }
+    a3() // Fat Arrow -  Dummy Object param!
+  }
+}
+a.f1()
+}
+```
 11. Call, Apply
 ```javascript
 f = function(){
