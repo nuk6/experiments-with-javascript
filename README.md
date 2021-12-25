@@ -23,7 +23,22 @@ const f = function(arg){
 
 ```
 3) Does JS pass by val or by ref? - Primitive Types by val, Non-Premitive type by ref, ref vals can't be modified
-4) Rest operator - whenever passing arguments to a function, if we're unsure about the number of args
+```javascript
+{
+  const f = (k) => { 
+    k = {}; 
+    k.t = 6; 
+    console.log(k)  // k.t == 6
+  }
+  const u = {t:9};
+  let v = {t:9};
+  f(u)
+  f(v)
+  console.log(u) // t == 9
+  console.log(v) // t == 9, k = {t: 9}  doesn't change, doesn't throw
+}
+```
+5) Rest operator - whenever passing arguments to a function, if we're unsure about the number of args
  -surprisigly, 'argument' variable inside a function looks like an array but for some reason it doesen't have few functions defined like 
  try the snippet below to understand
  ```javascript
