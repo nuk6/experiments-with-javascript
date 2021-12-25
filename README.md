@@ -7,6 +7,7 @@
     c) doesen't let the variables in eval blocks (brackets) to leak out
     d) doesen't let you re-assign args inside a func
     e) if inside a func, only the inner block will be in a strict mode
+    f) defauld value of 'this' in a function within an Object (context) won't be 'window' but 'undefined'
 ```javascript
 "use strict"
 let u = 10;
